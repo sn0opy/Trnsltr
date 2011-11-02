@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    color: #333;
+    font-family: 'Droid Sans', Arial, sans-serif;
+    font-size: 10pt;
+}
+
+h1 {
+    color: #FFF;
+    font-size: 60px;
+    padding: 40px;
+    padding-top: 48px;
+    text-align: right;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+h2 {
+    background: #444;
+    color: #FFF;
+    display: block;
+    padding: 6px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    font-size: 12pt;
+    border-radius: 2px;
+}
+
+.header {
+    height: 100px;
+    background: #3a4b54;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.content {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.footer {
+    color: #DDD;
+    text-align: center;
+    font-size: 8pt;
+    padding-top: 40px;
+    clear: both;
+}
+
+.sidebar {
+    float: right;
+    width: 200px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li a {
+    display: block;
+    background: #EEE;
+    margin-bottom: 4px;
+    padding: 5px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 2px;
+}
+
+.sidebar li a:hover {
+    background: #666;
+    color: #FFF;
+}
+
+.innerContent {
+    margin-right: 250px;
+}
+
+
+
