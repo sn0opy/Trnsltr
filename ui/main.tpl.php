@@ -15,11 +15,10 @@
                     <div class="sidebarWidget">
                         <h2>Projects</h2>
                         <ul>
-                            <li><a href="#">Test01</a></li>
-                            <li><a href="#">Test02</a></li>
-                            <li><a href="#">Test03</a></li>
-                            <li><a href="#">Test04</a></li>
-                            <li><a href="#">Test05</a></li>
+                            <F3:repeat group="{{@projects}}" value="{{@project}}">
+                                <li><a href="{{@BASE}}/project/{{@project.hash}}">{{@project.name}}</a></li>
+                            </F3:repeat>
+
                         </ul>
                     </div>
                 </div>

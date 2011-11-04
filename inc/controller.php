@@ -1,8 +1,6 @@
 <?php
 
-namespace controller;
-
-class misc extends \F3instance 
+class controller extends \F3instance 
 {
     function tpserve() 
     {

@@ -14,7 +14,7 @@ body {
 h1 {
     color: #FFF;
     font-size: 60px;
-    padding: 40px;
+    padding: 45px;
     padding-top: 48px;
     text-align: right;
     text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.8);
@@ -31,6 +31,26 @@ h2 {
     border-radius: 2px;
 }
 
+table {
+    width: 100%;
+}
+
+th {
+    text-align: left;
+}
+
+tbody tr:nth-child(2n+1) {
+    background-color: #EEE;
+}
+
+thead tr {
+    background: #BBB;
+}
+
+td, th {
+    padding: 5px;
+}
+
 .header {
     height: 100px;
     background: #3a4b54;
@@ -44,7 +64,7 @@ h2 {
 }
 
 .footer {
-    color: #DDD;
+    color: #CCC;
     text-align: center;
     font-size: 8pt;
     padding-top: 40px;
@@ -78,6 +98,3 @@ h2 {
 .innerContent {
     margin-right: 250px;
 }
-
-
-
