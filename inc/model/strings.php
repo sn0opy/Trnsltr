@@ -2,10 +2,10 @@
 
 namespace model;
 
-class projects extends \Axon 
+class strings extends \Axon 
 {
     function __construct() 
     {
-        $this->sync('projects');
+        $this->sync('strings');
     }
 }
