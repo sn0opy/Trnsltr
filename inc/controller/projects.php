@@ -27,11 +27,15 @@ class projects extends \controller
 
 		// Load the Strings of the Project
 		$strings = new \model\strings;
-		$strings = $strings->find(array('project = :hash', array(':hash' => $hash)));
+        $strings->find(array('project = :hash', array(':hash' => $hash)));
+
+        // Load translations statistics
+        $numTrans = \DB::sql('SELECT COUNT(*) as count, language FROM translations GROUP BY language');
 
 		// Add the results to the F3instance
-		$this->set(	'project', $project);
-		$this->set(	'strings', $strings);
+		$this->set('project', $project);
+		$this->set('numStrings', $strings->found());
+        $this->set('numTrans', $numTrans);
 
 		$this->set('contenttpl', 'project.tpl.php');
 		$this->tpserve();

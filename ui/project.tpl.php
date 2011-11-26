@@ -1,33 +1,23 @@
 <h2>{{@project->name}}</h2>
 
 <table>
-	<thead>
-		<tr>
-			<th>Original</th>
+    <thead>
+        <tr>   
+            <th>Language</th>
+            <th>% Done</th>
             <th>Translated</th>
             <th>Untranslated</th>
-		</tr>
-	</thead>
-	<tbody>
-<F3:repeat group="{{@strings}}" value="{{@string}}">
-		<tr>
-			<td><a href="/{{@BASE}}string/{{@string->hash}}">{{@string->original}}</a></td>
-			<td></td>
-			<td></td>
-		</tr>
-</F3:repeat>
-	</tbody>
+        </tr>
+    </thead>
+    <tbody>
+        {{* TODO: get all languages instead of only these with translations *}}
+    <F3:repeat group="{{@numTrans}}" value="{{@trans}}">
+        <tr>
+            <td>{{\controller\helper::getLang(@trans.language)}}</td>
+            <td>{{@numStrings * 100 / @trans.count}}</td>
+            <td>{{@trans.count}}</td>
+            <td>{{@numStrings - @trans.count}}</td>
+        </tr>
+    </F3:repeat>
+    </tbody>
 </table>
-
-
-<form action="/{{@BASE}}string" method="POST">
-	<input type="hidden" name="project" value="{{@project->hash}}" />
-
-	<div>
-		Original : <input type="text" name="original" />
-	</div>
-
-	<div>
-		<input type="submit" name="submit" value="submit" />
-	</div>
-</form>

@@ -18,7 +18,7 @@
 </table>
 
 
-<form action="/{{@BASE}}translation" method="POST">
+<form action="{{@BASE}}/translation" method="POST">
 	<input type="hidden" name="string" value="{{@string->hash}}" />
 
 	<div>
