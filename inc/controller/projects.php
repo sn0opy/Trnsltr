@@ -32,8 +32,6 @@ class projects extends \controller
         // Load translations statistics
         $numTrans = \DB::sql('SELECT COUNT(hash) as count, languages.short, languages.name FROM languages LEFT JOIN translations ON translations.language = languages.short GROUP BY languages.short');
 
-		var_dump($numTrans);
-
 		// Add the results to the F3instance
 		$this->set('project', $project);
 		$this->set('numStrings', $strings->found());

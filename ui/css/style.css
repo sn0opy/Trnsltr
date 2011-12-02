@@ -98,3 +98,39 @@ td, th {
 .innerContent {
     margin-right: 250px;
 }
+
+.message {
+    background-repeat: repeat-x;
+    border: rgba(0, 0, 0, 0.102);
+    border-bottom-color: rgba(0, 0, 0, 0.251);
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.251);
+    color: #FFF;
+    margin: 0 auto;
+    padding: 5px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.error
+{
+    background-color: #c43c35;
+}
+
+.success
+{
+    background-color: #57a957;
+}
+
+.info {
+    background-color: #339bb9; 
+}
+
+.warning 
+{
+    background-color: #eedc94; 
+    color: #404040;
+    text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.251);
+}
