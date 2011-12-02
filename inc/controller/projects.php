@@ -30,7 +30,9 @@ class projects extends \controller
         $strings->find(array('project = :hash', array(':hash' => $hash)));
 
         // Load translations statistics
-        $numTrans = \DB::sql('SELECT COUNT(*) as count, language FROM translations GROUP BY language');
+        $numTrans = \DB::sql('SELECT COUNT(hash) as count, languages.short, languages.name FROM languages LEFT JOIN translations ON translations.language = languages.short GROUP BY languages.short');
+
+		var_dump($numTrans);
 
 		// Add the results to the F3instance
 		$this->set('project', $project);

@@ -13,8 +13,8 @@
         {{* TODO: get all languages instead of only these with translations *}}
     <F3:repeat group="{{@numTrans}}" value="{{@trans}}">
         <tr>
-            <td>{{\controller\helper::getLang(@trans.language)}}</td>
-            <td>{{@numStrings * 100 / @trans.count}}</td>
+            <td>{{\controller\helper::getLang(@trans.short)}}</td>
+			<td>{{(@trans.count * 100) / @numStrings}}</td>
             <td>{{@trans.count}}</td>
             <td>{{@numStrings - @trans.count}}</td>
         </tr>
