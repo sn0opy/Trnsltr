@@ -6,6 +6,7 @@ class projects extends \controller
 {
     static function getProjects() 
     {
+        // get all projects
         $ax = new \model\projects;
         return $ax->afind();
     }
@@ -25,16 +26,16 @@ class projects extends \controller
 		if ($project->dry())
 			return $this->tpserve();
 
-		// Load the Strings of the Project
+		// count all strings of the project (used for statistics)
 		$strings = new \model\strings;
-        $strings->find(array('project = :hash', array(':hash' => $hash)));
+        $numStrings = $strings->found(array('project = :hash', array(':hash' => $hash)));
 
-        // Load translations statistics
-        $numTrans = \DB::sql('SELECT COUNT(hash) as count, languages.short, languages.name FROM languages LEFT JOIN translations ON translations.language = languages.short GROUP BY languages.short');
+        // Load translation statistics for a specific project
+        $numTrans = \DB::sql('SELECT COUNT(translations.hash) as count, languages.short, languages.name FROM strings, languages LEFT JOIN translations ON translations.language = languages.short WHERE strings.project = "'.$hash.'" GROUP BY languages.short'); // TODO: NEEDS TO BE FIXED SOMEHOW, BECAUSE OF SQL INJECTION!
 
 		// Add the results to the F3instance
 		$this->set('project', $project);
-		$this->set('numStrings', $strings->found());
+		$this->set('numStrings', $numStrings);
         $this->set('numTrans', $numTrans);
 
 		$this->set('contenttpl', 'project.tpl.php');

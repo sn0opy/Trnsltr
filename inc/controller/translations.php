@@ -6,8 +6,7 @@ class translations extends \controller
 {
     static function getTranslationsByProject() 
     {
-        $ax = new \model\translations;
-        
+        $ax = new \model\translations;        
     }
 
 	/**
