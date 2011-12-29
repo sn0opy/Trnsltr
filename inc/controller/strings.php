@@ -58,4 +58,22 @@ class strings extends \controller
 	{
 
 	}
+    
+    public function showStringsToLang() {
+        $project = $this->get('PARAMS.project');
+        $language = $this->get('PARAMS.lang');
+        
+        $strings = $this->get('DB')->sql(
+            'SELECT strings.hash, strings.original, translations.translation FROM strings 
+            LEFT JOIN translations ON strings.hash = translations.string AND language = :lang
+            WHERE strings.project = :proj
+            ORDER BY addedDate',
+            array(':proj' => $project, ':lang' => $language)
+        );
+       
+        $this->set('strings', $strings);
+        
+        $this->set('contenttpl', 'strings.tpl.php');
+        $this->tpserve();
+    }
 }

@@ -2,7 +2,7 @@
 
 <F3:check if="{{@numStrings > 0}}">
     <F3:true>
-    <table>
+    <table class="languages">
         <thead>
             <tr>   
                 <th>Language</th>
@@ -14,7 +14,7 @@
         <tbody>
         <F3:repeat group="{{@numTrans}}" value="{{@trans}}">
             <tr>
-                <td>{{\controller\helper::getLang(@trans.short)}}</td>
+                <td>&rsaquo; <a href="{{@BASE}}/project/{{@PARAMS.project}}/{{@trans.short}}">{{\controller\helper::getLang(@trans.short)}}</a></td>
                 <td>{{(@trans.count * 100) / @numStrings}}</td>
                 <td>{{@trans.count}}</td>
                 <td>{{@numStrings - @trans.count}}</td>

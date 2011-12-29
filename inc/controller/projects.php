@@ -17,7 +17,7 @@ class projects extends \controller
 	public function showProject()
 	{
 		// Get the hash from the url
-		$hash = $this->get('PARAMS.hash');
+		$hash = $this->get('PARAMS.project');
 
 		// Load the Project
 		$project = new \model\projects;
@@ -31,7 +31,13 @@ class projects extends \controller
         $numStrings = $strings->found(array('project = :hash', array(':hash' => $hash)));
 
         // Load translation statistics for a specific project
-        $numTrans = \DB::sql('SELECT COUNT(translations.hash) as count, languages.short, languages.name FROM strings, languages LEFT JOIN translations ON translations.language = languages.short WHERE strings.project = :hash GROUP BY languages.short', array(':hash' => $hash));
+        $numTrans = $this->get('DB')->sql(' SELECT COUNT(translations.hash) as count, languages.short, languages.name 
+                                            FROM strings, languages 
+                                            LEFT JOIN translations ON translations.language = languages.short 
+                                            WHERE strings.project = :hash 
+                                            GROUP BY languages.short
+                                            ORDER BY count DESC', 
+                                            array(':hash' => $hash));
 
 		// Add the results to the F3instance
 		$this->set('project', $project);

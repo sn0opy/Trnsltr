@@ -1,13 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700);
-
 * {
     margin: 0px;
     padding: 0px;
 }
 
-body {
+body, textarea, input {
     color: #333;
-    font-family: 'Droid Sans', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 10pt;
 }
 
@@ -26,9 +24,7 @@ h2 {
     display: block;
     padding: 6px;
     margin-bottom: 10px;
-    border-radius: 2px;
     font-size: 12pt;
-    border-radius: 2px;
 }
 
 table {
@@ -87,7 +83,6 @@ td, th {
     padding: 5px;
     text-decoration: none;
     color: #333;
-    border-radius: 2px;
 }
 
 .sidebar li a:hover {
@@ -107,9 +102,6 @@ td, th {
     color: #FFF;
     margin: 0 auto;
     padding: 5px;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -133,4 +125,45 @@ td, th {
     background-color: #eedc94; 
     color: #404040;
     text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.251);
+}
+
+table.languages a {
+    color: #333;
+    text-decoration: none;
+    font-style: normal;
+}
+
+table.languages a:hover {
+    color: #FF004D;
+    font-style: italic;
+}
+
+table.languages {
+    width: 500px;
+}
+
+.transRowTranslation textarea, .transRowOriginal div {
+    background: #FFF;
+    border: none;
+    padding: 5px;
+    width: 400px;
+    min-height: 50px;
+    outline: none;
+}
+
+ul.projects li.active {
+    background-color: #F00;
+}
+
+table.translation .green {
+    background-color: #99CC81;
+}
+
+table.translation .red {
+    background-color: #F47E7D;
+}
+
+table.translation {
+    width: 30%;
+    margin: 0 auto;
 }

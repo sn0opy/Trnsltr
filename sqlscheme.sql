@@ -10,7 +10,8 @@ INSERT INTO `projects` (`hash`, `name`) VALUES
 CREATE TABLE IF NOT EXISTS `strings` (
   `hash` char(8) NOT NULL PRIMARY KEY,
   `original` text NOT NULL,
-  `project` char(8) NOT NULL
+  `project` char(8) NOT NULL,
+  `addedDate` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 

@@ -45,7 +45,7 @@ class translations extends \controller
 
 		// Change the attributes
 		$translation->translation = $this->get('POST.translation');
-		$translation->language = $this->get('POST.language');
+		$translation->language = $this->get('PARAMS.lang');
 
 		// Save it!
 		$translation->save();

@@ -3,7 +3,9 @@
     <head>
         <title>Trnsltr</title>
         <meta charset="UTF-8" />
-        <link href="{{@BASE}}/ui/css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{@BASE}}/ui/css/style.css" type="text/css" />
+        <script type="text/javascript" src="{{@BASE}}/ui/js/jquery.js"></script>
+        <script type="text/javascript" src="{{@BASE}}/ui/js/trnsltr.js"></script>
     </head>
     <body>
         <div class="container">
@@ -14,11 +16,10 @@
                 <div class="sidebar">
                     <div class="sidebarWidget">
                         <h2>Projects</h2>
-                        <ul>
+                        <ul class="projects">
                             <F3:repeat group="{{@projects}}" value="{{@project}}">
-                                <li><a href="{{@BASE}}/project/{{@project.hash}}">{{@project.name}}</a></li>
+                                <li><a href="{{@BASE}}/project/{{@project.hash}}"{{@PARAMS.project==@project.hash?'class="active"':''}}>{{@project.name}}</a></li>
                             </F3:repeat>
-
                         </ul>
                     </div>
                 </div>
