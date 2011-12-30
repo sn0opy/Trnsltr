@@ -27,3 +27,7 @@
         <p class="info message">There are no strings to translate.</p>
     </F3:false>
 </F3:check>
+
+<div class="actions">
+    <a href="{{@BASE}}/project/{{@PARAMS.project}}/strings" class="btn">Manage strings</a>
+</div>

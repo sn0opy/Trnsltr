@@ -15,4 +15,9 @@ class helper extends \F3instance
 
 		return $languages[$short];
 	}
+    
+    public static function randStr($length = 8)
+    {
+        return substr(str_shuffle('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'), 0, $length);
+    }
 }

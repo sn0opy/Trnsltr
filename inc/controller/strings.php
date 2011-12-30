@@ -64,8 +64,11 @@ class strings extends \controller
         $language = $this->get('PARAMS.lang');
         
         $strings = $this->get('DB')->sql(
-            'SELECT strings.hash, strings.original, translations.translation FROM strings 
-            LEFT JOIN translations ON strings.hash = translations.string AND language = :lang
+            'SELECT strings.hash, strings.original, translations.translation 
+            FROM strings 
+            LEFT JOIN translations 
+                ON strings.hash = translations.string 
+                AND language = :lang
             WHERE strings.project = :proj
             ORDER BY addedDate',
             array(':proj' => $project, ':lang' => $language)
@@ -73,6 +76,17 @@ class strings extends \controller
        
         $this->set('strings', $strings);
         
+        $this->set('contenttpl', 'translate.tpl.php');
+        $this->tpserve();
+    }
+    
+    public function showStringsToProj() {
+        $project = $this->get('PARAMS.project');
+        
+        $ax = new \model\strings;
+        $strings = $ax->afind(array('project = :proj', array(':proj' => $project)));
+        
+        $this->set('strings', $strings);
         $this->set('contenttpl', 'strings.tpl.php');
         $this->tpserve();
     }

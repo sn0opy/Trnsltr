@@ -18,7 +18,7 @@
                         <h2>Projects</h2>
                         <ul class="projects">
                             <F3:repeat group="{{@projects}}" value="{{@project}}">
-                                <li><a href="{{@BASE}}/project/{{@project.hash}}"{{@PARAMS.project==@project.hash?'class="active"':''}}>{{@project.name}}</a></li>
+                                <li><a href="{{@BASE}}/project/{{@project.hash}}"{{@PARAMS.project==@project.hash?' class="active"':''}}>{{@project.name}}</a></li>
                             </F3:repeat>
                         </ul>
                     </div>

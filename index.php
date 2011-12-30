@@ -12,6 +12,7 @@ include('data/config.inc.php');
 // Routes, that are displaying an overview
 $app->route('GET /', 'controller\main->start');
 $app->route('GET /project/@project', 'controller\projects->showProject');
+$app->route('GET /project/@project/strings', 'controller\strings->showStringsToProj');
 $app->route('GET /project/@project/@lang', 'controller\strings->showStringsToLang');
 $app->route('GET /string/@hash', 'controller\strings->showString');
 

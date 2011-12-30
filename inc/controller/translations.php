@@ -17,7 +17,7 @@ class translations extends \controller
 		// Init object
 		$translation = new \model\translations;
 
-		$translation->hash = md5(time());
+		$translation->hash = \controller\helper::randStr();
 		$translation->string = $this->get('POST.string');
 		$translation->translation = $this->get('POST.translation');
 		$translation->language = $this->get('POST.language');
@@ -34,21 +34,21 @@ class translations extends \controller
 	public function editTranslation()
 	{
 		// Get Hash of the translation
-		$hash = $this->get('PARAMS.hash');
+		$string = $this->get('PARAMS.hash');
+        $lang = $this->get('PARAMS.lang');
 
 		// Load it from database
 		$translation = new \model\translations;
-		$translation->load(array('hash = :hash', array(':hash' => $hash)));
-
-		if ($translation->dry())
-			return;
+		$translation->load( array('string = :string AND language = :lang', 
+                            array(':string' => $string, ':lang' => $lang)));
 
 		// Change the attributes
-		$translation->translation = $this->get('POST.translation');
-		$translation->language = $this->get('PARAMS.lang');
+        $translation->hash = $translation->hash ? $translation->hash : \controller\helper::randStr();
+        $translation->string = $string;
+		$translation->translation = trim($this->get('POST.translation'));
+		$translation->language = $lang;
 
 		// Save it!
 		$translation->save();
-		$this->reroute('/string/' . $translatoin->string);
 	} 
 }

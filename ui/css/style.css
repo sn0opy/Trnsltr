@@ -86,8 +86,10 @@ td, th {
 }
 
 .sidebar li a:hover {
-    background: #666;
+    background: #3a4b54;
     color: #FFF;
+    font-weight: bold;
+    font-style: normal;
 }
 
 .innerContent {
@@ -127,36 +129,39 @@ td, th {
     text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.251);
 }
 
-table.languages a {
+a {
     color: #333;
     text-decoration: none;
     font-style: normal;
 }
 
-table.languages a:hover {
+a:hover {
     color: #FF004D;
     font-style: italic;
 }
 
-table.languages {
-    width: 500px;
-}
-
-.transRowTranslation textarea, .transRowOriginal div {
+.transRowTranslation textarea, .transRowOriginal textarea {
     background: #FFF;
     border: none;
-    padding: 5px;
     width: 400px;
     min-height: 50px;
     outline: none;
+    padding: 5px;
 }
 
-ul.projects li.active {
-    background-color: #F00;
+.transRowTranslation {
+    position: relative;
+}
+
+ul.projects .active {
+    background-color: #3a4b54;
+    color: #FFF;
+    font-weight: bold;
 }
 
 table.translation .green {
     background-color: #99CC81;
+    z-index: 1;
 }
 
 table.translation .red {
@@ -166,4 +171,62 @@ table.translation .red {
 table.translation {
     width: 30%;
     margin: 0 auto;
+}
+
+.transRow .success {
+    background: transparent;
+    color: #57a957;
+    display: none;
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    z-index: 10;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #e6e6e6;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), color-stop(25%, #ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -ms-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: -o-linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  background-image: linear-gradient(#ffffff, #ffffff 25%, #e6e6e6);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e6e6e6', GradientType=0);
+  padding: 4px 10px 5px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  color: #333;
+  font-size: 13px;
+  line-height: normal;
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+  -webkit-transition: 0.1s linear all;
+  -moz-transition: 0.1s linear all;
+  -ms-transition: 0.1s linear all;
+  -o-transition: 0.1s linear all;
+  transition: 0.1s linear all;
+}
+
+.btn:hover {
+  background-position: 0 -15px;
+  color: #333;
+  text-decoration: none;
+  font-style: normal;
+}
+
+.btn:focus {
+  outline: 1px dotted #666;
+}
+
+.actions {
+    float: right;
+    margin-top: 20px;
 }
