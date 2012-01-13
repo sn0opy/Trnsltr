@@ -59,6 +59,15 @@ class strings extends \controller
 
 	}
     
+    public function deleteString() {
+        $string = $this->get('PARAMS.hash');
+        $ax = new Axon('strings');
+        $ax->load(array('hash = :hash', array(':hash' => $string)));
+        $project = $ax->project;
+        $ax->erase();
+        $this->reroute('/project/'.$project.'/strings');
+    }
+    
     public function showStringsToLang() {
         $project = $this->get('PARAMS.project');
         $language = $this->get('PARAMS.lang');

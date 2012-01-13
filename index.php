@@ -21,10 +21,13 @@ $app->route('POST /project', 'controller\projects->addProject');
 $app->route('POST /string', 'controller\strings->addString');
 $app->route('POST /translation', 'controller\translations->addTranslation');
 
-// Routes that edit existing Entries
+// Routes that edit existing entries
 $app->route('POST /project/@hash', 'controller\projects->editProject');
 $app->route('POST /string/@hash', 'controller\strings->editString');
 $app->route('POST /translation/@hash', 'controller\translations->editTranslation');
+
+// Routes that delete existing entries
+$app->route('GET /string/delete/@hash', 'controller\strings->deleteString');
 
 // Ajax stuff
 $app->route('POST /ajax/translate/@hash/@lang', 'controller\translations->editTranslation');

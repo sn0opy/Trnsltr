@@ -29,13 +29,13 @@ class projects extends \controller
 		// count all strings of the project (used for statistics)
 		$strings = new \model\strings;
         $numStrings = $strings->found(array('project = :hash', array(':hash' => $hash)));
-
+        
         // Load translation statistics for a specific project
         $numTrans = 
             $this->get('DB')->sql(' 
                 SELECT COUNT(translations.hash) as count, languages.short, languages.name 
-                FROM strings, languages 
-                LEFT JOIN translations ON translations.language = languages.short 
+                FROM strings, languages
+                LEFT JOIN translations ON translations.language = languages.short
                 WHERE strings.project = :hash 
                 GROUP BY languages.short
                 ORDER BY count DESC', 
@@ -49,6 +49,13 @@ class projects extends \controller
 		$this->set('contenttpl', 'project.tpl.php');
 		$this->tpserve();
 	}
+    
+    public static function getProjnameByHash($hash) {
+        $ax = new \Axon('projects');
+        $ax->load(array('hash = :hash', array(':hash' => $hash)));
+        if(!$ax->dry())
+            return $ax->name;
+    }
 
 	/**
 	 *	Add a new Project to the database

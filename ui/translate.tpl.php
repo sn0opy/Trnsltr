@@ -1,3 +1,4 @@
+<h2>{{\controller\projects::getProjnameByHash(@PARAMS.project)}} &raquo; Translation &raquo; {{@PARAMS.lang}}</h2>
 <table class="translation">
 <F3:repeat group="{{@strings}}" value="{{@string}}">
     <tr class="transRow {{@string.translation!=NULL?'green':'red'}}">
